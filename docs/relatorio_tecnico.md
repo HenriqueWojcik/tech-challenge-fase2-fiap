@@ -140,7 +140,7 @@ paciente → modelo otimizado → probabilidade de malignidade
 A LLM **não decide nada**. O diagnóstico vem do modelo validado, e a LLM só traduz números em texto. Toda a informação necessária vai no prompt (*grounding*, a mesma ideia do RAG), o que reduz o espaço para alucinação.
 
 O cliente (`llm/client.py`) usa a API compatível com OpenAI, então funciona com:
-- **Groq** (Llama 3.3 70B, gratuito, usado nos resultados);
+- **Groq** (gratuito, usado nos resultados). O padrão do código é o Llama 3.3 70B, mas ele não estava mais disponível na conta. Os resultados da seção 4.4 usaram `openai/gpt-oss-20b`, definido por `LLM_MODEL` no `.env`;
 - **OpenAI**;
 - **Ollama**, que roda localmente: nenhum dado sai do hospital (LGPD).
 
@@ -176,11 +176,44 @@ São seis métricas automáticas e reprodutíveis, mais uma avaliação opcional
 Casos avaliados: o falso negativo que o modelo original deixava passar, o caso mais claramente maligno, o mais claramente benigno e o mais incerto (probabilidade mais próxima de 50%).
 
 ### 4.4 Resultados da LLM
-> **[PREENCHER após rodar `python scripts/interpret_patients.py` com a chave da Groq]**
-> Copie aqui a tabela "Média das métricas automáticas por tipo de prompt" impressa pelo script (também em `results/llm/avaliacao_llm.csv`), cole um trecho de uma explicação de `results/llm/caso_73_engenheirado.md` e comente:
-> - a diferença entre o prompt ingênuo e o engenheirado (normalmente: o ingênuo não segue estrutura, esquece o aviso de segurança e às vezes inventa números ou faixas de referência);
-> - se apareceram números sem suporte (coluna `numeros_sem_suporte`) e quais;
-> - as notas do LLM-juiz.
+Execução: `python scripts/interpret_patients.py`, com o provedor Groq e o modelo `openai/gpt-oss-20b`. O modelo classificador escolhido automaticamente foi a `logistic_regression` otimizada. Foram avaliados 4 pacientes do teste (73, 461, 296 e 526), cada um com os dois prompts, num total de 8 explicações. Os dados por caso estão em `results/llm/avaliacao_llm.csv`.
+
+**Média das métricas automáticas por tipo de prompt**
+
+| prompt | estrutura | classe_correta | cobertura_fatores | fidelidade_numerica | seguranca | tamanho_adequado | nota_geral |
+|---|---|---|---|---|---|---|---|
+| engenheirado | 1,0 | 1,0 | 1,0 | 1,000 | 1,00 | 1,0 | 1,00 |
+| ingenuo | 0,8 | 1,0 | 1,0 | 0,892 | 0,75 | 0,0 | 0,74 |
+
+**Média das notas do LLM-juiz (1 a 5)**
+
+| prompt | clareza | utilidade clínica | fidelidade aos dados | tom adequado |
+|---|---|---|---|---|
+| engenheirado (4 casos) | 4,75 | 4,00 | 4,50 | 5,00 |
+| ingenuo (3 casos*) | 4,33 | 4,33 | 5,00 | 4,00 |
+
+\* No caso 526 com prompt ingênuo, o juiz não devolveu notas (campos vazios no CSV). A média do ingênuo usa só 3 casos.
+
+**Trecho de `results/llm/caso_73_engenheirado.md`** (paciente maligno que o modelo classifica como benigno, com probabilidade de malignidade de 0,1693):
+
+> ## Resumo
+> O modelo de regressão logística, otimizado por algoritmo genético, indicou que o nódulo é **benigno** com uma probabilidade de malignidade de **16,9 %** (0,1693).
+>
+> ## Confiança do resultado
+> O nível de confiança é **moderado**. [...] Esses indicadores sugerem que o modelo é robusto, mas a confiança moderada indica que fatores não capturados pelo modelo podem influenciar o resultado.
+>
+> ## Próximos passos sugeridos
+> [...] 3. **Biópsia confirmatória** – se houver suspeita clínica ou radiológica, realizar biópsia por agulha fina ou núcleo.
+
+*Comentário:* a LLM tratou a incerteza só em parte. Ela repetiu o nível de confiança "moderado" e a probabilidade de 16,9%. Também citou o único fator que aumenta o risco (pontos côncavos, pior valor: 0,1383, acima da média dos benignos, 0,0744) e recomendou avaliação clínica e biópsia condicional. Por outro lado, chamou o modelo de "robusto" e não disse que uma chance de malignidade de cerca de 17% merece atenção. Este paciente era de fato **maligno**, informação que não vai para a LLM. É o tipo de caso em que uma regra explícita no prompt ajudaria, por exemplo: "se a probabilidade de malignidade estiver acima de X%, recomende investigação adicional". Isso fica registrado como melhoria futura.
+
+**Prompt ingênuo × engenheirado**
+- **Formato e tamanho:** o engenheirado seguiu as 5 seções em todos os casos (estrutura 1,0) e ficou entre 286 e 355 palavras. O ingênuo produziu de 694 a 998 palavras, com tabelas e emojis. Ficou fora da faixa em todos os casos (tamanho_adequado 0,0) e nem sempre trouxe as seções pedidas (estrutura 0,8).
+- **Segurança:** o engenheirado teve 1,00. O ingênuo teve 0,75, porque no caso 461 não incluiu o aviso exigido (seguranca 0,0). O LLM-juiz apontou ainda os emojis do ingênuo como "ligeiramente informais" (tom 4,0 contra 5,0).
+- **Números sem suporte (`numeros_sem_suporte`):** o engenheirado não teve nenhum, em nenhum caso. O ingênuo teve em todos os casos: 73 → `[0.0, 0.7444, 0.4144, 0.2968, 83.1, 100.0, 100.0, 30.0, 83.1]`; 461 → `[0.0, 30.0]`; 296 → `[0.5, 1.1, 1.706, 0.9941, 0.8283, 0.8074, 5.33, 30.0, 10.0]`; 526 → `[0.5305, 30.0, 70.0]`. Nem todos são alucinações. No caso 73, 0,7444, 0,4144 e 0,2968 são os impactos SHAP do próprio caso, que são negativos. O texto escreveu o sinal com um hífen não padrão ("‑0,7444"), e o verificador leu os valores como positivos. 83,1 e 100 vêm da conta 100% − 16,9%, e 30 corresponde aos "30 atributos" do dataset, informação que não está no JSON. Isso mostra duas coisas: o prompt ingênuo faz a LLM trazer conhecimento e contas fora do caso, e a métrica automática de fidelidade é conservadora e pode gerar falsos positivos com a formatação.
+- **LLM-juiz × métricas automáticas:** o juiz deu fidelidade 5,0 ao ingênuo e 4,5 ao engenheirado. A média do engenheirado caiu por causa do caso 526 (nota 3), em que o juiz viu "inconsistências nos valores comparativos (ex.: pontos côncavos e compacidade)". Ali todos os números existiam no caso (fidelidade_numerica 1,0), mas as comparações com as médias estavam erradas. As duas avaliações se complementam: a automática pega números inventados, e o juiz pega afirmações erradas feitas com números corretos. Com 4 casos e um único juiz que é o mesmo modelo gerador, as notas do juiz são indicativas, não conclusivas.
+
+Em resumo, o prompt engenheirado ganhou em todas as métricas automáticas (nota geral 1,00 contra 0,74). O ganho vem de formato, concisão, segurança e ausência de números fora do caso, e não da classe prevista: os dois prompts acertaram a classe em 100% dos casos.
 
 ### 4.5 Base para o Módulo 3
 Cada caso interpretado é salvo em `results/llm/casos_modulo3.jsonl`, um formato estruturado com previsão, fatores e classe real. Esse arquivo pode ser indexado numa base vetorial (RAG) e combinado com laudos textuais no assistente médico do Módulo 3.
