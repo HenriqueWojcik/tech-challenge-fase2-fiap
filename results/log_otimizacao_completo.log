@@ -1,0 +1,128 @@
+13:06:49 | INFO | tc2.experiments | ======================================================================
+13:06:49 | INFO | tc2.experiments | MODELO: random_forest
+13:06:52 | INFO | tc2.experiments | Original (Fase 1): CV F2=0.9517 | teste recall=0.9286 FN=3
+13:06:52 | INFO | tc2.experiments | ----------------------------------------------------------------------
+13:06:52 | INFO | tc2.experiments | E1_base - Configuração de referência: torneio k=3, elitismo 2, mutação 15%
+13:07:16 | INFO | tc2.ga | [random_forest] geração 00 | melhor=0.9592 média=0.9421 diversidade=1.00 treinos=16 (23.8s)
+13:07:31 | INFO | tc2.ga | [random_forest] geração 01 | melhor=0.9627 média=0.9489 diversidade=0.81 treinos=11 (15.7s)
+13:07:48 | INFO | tc2.ga | [random_forest] geração 02 | melhor=0.9627 média=0.9516 diversidade=0.88 treinos=11 (17.0s)
+13:07:59 | INFO | tc2.ga | [random_forest] geração 03 | melhor=0.9627 média=0.9578 diversidade=0.75 treinos=8 (10.8s)
+13:08:20 | INFO | tc2.ga | [random_forest] geração 04 | melhor=0.9627 média=0.9563 diversidade=0.88 treinos=11 (21.3s)
+13:08:36 | INFO | tc2.ga | [random_forest] geração 05 | melhor=0.9627 média=0.9560 diversidade=1.00 treinos=12 (15.2s)
+13:08:54 | INFO | tc2.ga | [random_forest] geração 06 | melhor=0.9627 média=0.9554 diversidade=0.94 treinos=13 (18.1s)
+13:09:05 | INFO | tc2.ga | [random_forest] geração 07 | melhor=0.9627 média=0.9560 diversidade=0.94 treinos=10 (11.8s)
+13:09:05 | INFO | tc2.ga | [random_forest] fim: sem melhora por 6 gerações (convergiu) | melhor fitness=0.9627 | {'n_estimators': 103, 'max_depth': 5, 'min_samples_split': 5, 'min_samples_leaf': 1, 'max_features': 'log2', 'criterion': 'gini', 'class_weight': 'balanced'}
+13:09:06 | INFO | tc2.experiments | ----------------------------------------------------------------------
+13:09:06 | INFO | tc2.experiments | E2_mutacao_alta - Mutação 40% com passo maior: mais exploração, menos convergência
+13:09:31 | INFO | tc2.ga | [random_forest] geração 00 | melhor=0.9592 média=0.9421 diversidade=1.00 treinos=16 (25.5s)
+13:09:47 | INFO | tc2.ga | [random_forest] geração 01 | melhor=0.9603 média=0.9449 diversidade=1.00 treinos=13 (15.9s)
+13:10:13 | INFO | tc2.ga | [random_forest] geração 02 | melhor=0.9603 média=0.9478 diversidade=0.94 treinos=13 (26.0s)
+13:10:36 | INFO | tc2.ga | [random_forest] geração 03 | melhor=0.9628 média=0.9482 diversidade=1.00 treinos=14 (23.2s)
+13:10:58 | INFO | tc2.ga | [random_forest] geração 04 | melhor=0.9628 média=0.9494 diversidade=1.00 treinos=14 (22.0s)
+13:11:19 | INFO | tc2.ga | [random_forest] geração 05 | melhor=0.9628 média=0.9521 diversidade=1.00 treinos=14 (20.7s)
+13:11:35 | INFO | tc2.ga | [random_forest] geração 06 | melhor=0.9628 média=0.9492 diversidade=0.94 treinos=13 (16.4s)
+13:11:45 | INFO | tc2.ga | [random_forest] geração 07 | melhor=0.9628 média=0.9514 diversidade=1.00 treinos=14 (9.9s)
+13:11:51 | INFO | tc2.ga | [random_forest] geração 08 | melhor=0.9628 média=0.9503 diversidade=1.00 treinos=14 (5.5s)
+13:11:57 | INFO | tc2.ga | [random_forest] geração 09 | melhor=0.9628 média=0.9486 diversidade=0.94 treinos=13 (6.0s)
+13:11:57 | INFO | tc2.ga | [random_forest] fim: sem melhora por 6 gerações (convergiu) | melhor fitness=0.9628 | {'n_estimators': 50, 'max_depth': 8, 'min_samples_split': 5, 'min_samples_leaf': 2, 'max_features': 'sqrt', 'criterion': 'gini', 'class_weight': 'balanced'}
+13:11:57 | INFO | tc2.experiments | ----------------------------------------------------------------------
+13:11:57 | INFO | tc2.experiments | E3_populacao_maior - População 28 com menos gerações (mesmo orçamento): mais diversidade inicial
+13:12:36 | INFO | tc2.ga | [random_forest] geração 00 | melhor=0.9592 média=0.9423 diversidade=1.00 treinos=28 (39.1s)
+13:13:15 | INFO | tc2.ga | [random_forest] geração 01 | melhor=0.9592 média=0.9482 diversidade=1.00 treinos=24 (38.8s)
+13:13:50 | INFO | tc2.ga | [random_forest] geração 02 | melhor=0.9592 média=0.9481 diversidade=0.96 treinos=23 (35.0s)
+13:14:25 | INFO | tc2.ga | [random_forest] geração 03 | melhor=0.9592 média=0.9528 diversidade=1.00 treinos=24 (35.1s)
+13:14:55 | INFO | tc2.ga | [random_forest] geração 04 | melhor=0.9650 média=0.9554 diversidade=0.93 treinos=19 (30.8s)
+13:15:40 | INFO | tc2.ga | [random_forest] geração 05 | melhor=0.9650 média=0.9536 diversidade=1.00 treinos=21 (44.6s)
+13:16:18 | INFO | tc2.ga | [random_forest] geração 06 | melhor=0.9650 média=0.9556 diversidade=0.96 treinos=21 (37.6s)
+13:16:18 | INFO | tc2.ga | [random_forest] fim: atingiu o máximo de 7 gerações | melhor fitness=0.9650 | {'n_estimators': 182, 'max_depth': 5, 'min_samples_split': 5, 'min_samples_leaf': 1, 'max_features': 'log2', 'criterion': 'gini', 'class_weight': 'balanced'}
+13:16:18 | INFO | tc2.experiments | ----------------------------------------------------------------------
+13:16:18 | INFO | tc2.experiments | E4_roleta_sem_elitismo - Seleção por roleta e sem elitismo: menor pressão seletiva
+13:16:39 | INFO | tc2.ga | [random_forest] geração 00 | melhor=0.9592 média=0.9421 diversidade=1.00 treinos=16 (21.0s)
+13:17:00 | INFO | tc2.ga | [random_forest] geração 01 | melhor=0.9592 média=0.9449 diversidade=1.00 treinos=16 (21.1s)
+13:17:16 | INFO | tc2.ga | [random_forest] geração 02 | melhor=0.9580 média=0.9460 diversidade=1.00 treinos=12 (15.9s)
+13:17:30 | INFO | tc2.ga | [random_forest] geração 03 | melhor=0.9603 média=0.9480 diversidade=0.94 treinos=11 (13.8s)
+13:17:44 | INFO | tc2.ga | [random_forest] geração 04 | melhor=0.9592 média=0.9468 diversidade=0.94 treinos=11 (14.6s)
+13:18:00 | INFO | tc2.ga | [random_forest] geração 05 | melhor=0.9557 média=0.9496 diversidade=0.88 treinos=10 (16.0s)
+13:18:27 | INFO | tc2.ga | [random_forest] geração 06 | melhor=0.9592 média=0.9480 diversidade=1.00 treinos=16 (26.7s)
+13:18:45 | INFO | tc2.ga | [random_forest] geração 07 | melhor=0.9557 média=0.9461 diversidade=0.94 treinos=11 (17.8s)
+13:19:02 | INFO | tc2.ga | [random_forest] geração 08 | melhor=0.9557 média=0.9473 diversidade=1.00 treinos=12 (17.3s)
+13:19:27 | INFO | tc2.ga | [random_forest] geração 09 | melhor=0.9603 média=0.9511 diversidade=1.00 treinos=15 (24.5s)
+13:19:27 | INFO | tc2.ga | [random_forest] fim: sem melhora por 6 gerações (convergiu) | melhor fitness=0.9603 | {'n_estimators': 226, 'max_depth': 12, 'min_samples_split': 6, 'min_samples_leaf': 1, 'max_features': 'log2', 'criterion': 'entropy', 'class_weight': 'balanced'}
+13:19:27 | INFO | tc2.experiments | ----------------------------------------------------------------------
+13:19:27 | INFO | tc2.experiments | E5_semeado_fase1 - Igual ao E1, mas com o modelo da Fase 1 na população inicial
+13:19:47 | INFO | tc2.ga | [random_forest] geração 00 | melhor=0.9592 média=0.9428 diversidade=1.00 treinos=16 (19.5s)
+13:20:03 | INFO | tc2.ga | [random_forest] geração 01 | melhor=0.9592 média=0.9470 diversidade=0.94 treinos=12 (16.4s)
+13:20:25 | INFO | tc2.ga | [random_forest] geração 02 | melhor=0.9592 média=0.9523 diversidade=0.94 treinos=12 (21.8s)
+13:20:42 | INFO | tc2.ga | [random_forest] geração 03 | melhor=0.9603 média=0.9540 diversidade=0.94 treinos=9 (17.6s)
+13:21:15 | INFO | tc2.ga | [random_forest] geração 04 | melhor=0.9603 média=0.9567 diversidade=1.00 treinos=12 (33.0s)
+13:21:42 | INFO | tc2.ga | [random_forest] geração 05 | melhor=0.9603 média=0.9555 diversidade=1.00 treinos=12 (26.9s)
+13:22:03 | INFO | tc2.ga | [random_forest] geração 06 | melhor=0.9603 média=0.9550 diversidade=1.00 treinos=12 (21.0s)
+13:22:22 | INFO | tc2.ga | [random_forest] geração 07 | melhor=0.9685 média=0.9567 diversidade=0.94 treinos=11 (18.9s)
+13:22:37 | INFO | tc2.ga | [random_forest] geração 08 | melhor=0.9685 média=0.9584 diversidade=0.88 treinos=9 (15.0s)
+13:22:48 | INFO | tc2.ga | [random_forest] geração 09 | melhor=0.9685 média=0.9619 diversidade=0.75 treinos=8 (10.6s)
+13:22:54 | INFO | tc2.ga | [random_forest] geração 10 | melhor=0.9697 média=0.9645 diversidade=0.75 treinos=7 (6.7s)
+13:23:09 | INFO | tc2.ga | [random_forest] geração 11 | melhor=0.9697 média=0.9588 diversidade=0.94 treinos=12 (14.7s)
+13:23:09 | INFO | tc2.ga | [random_forest] fim: atingiu o máximo de 12 gerações | melhor fitness=0.9697 | {'n_estimators': 184, 'max_depth': 12, 'min_samples_split': 2, 'min_samples_leaf': 1, 'max_features': 'log2', 'criterion': 'gini', 'class_weight': 'balanced'}
+13:25:23 | INFO | tc2.experiments | Busca aleatória (92 treinos): CV F2=0.9592
+13:25:24 | INFO | tc2.experiments | ======================================================================
+13:25:24 | INFO | tc2.experiments | MODELO: logistic_regression
+13:25:24 | INFO | tc2.experiments | Original (Fase 1): CV F2=0.9668 | teste recall=0.9762 FN=1
+13:25:24 | INFO | tc2.experiments | ----------------------------------------------------------------------
+13:25:24 | INFO | tc2.experiments | E1_base - Configuração de referência: torneio k=3, elitismo 2, mutação 15%
+13:25:34 | INFO | tc2.ga | [logistic_regression] geração 00 | melhor=0.9636 média=0.9272 diversidade=1.00 treinos=16 (10.7s)
+13:25:41 | INFO | tc2.ga | [logistic_regression] geração 01 | melhor=0.9658 média=0.9522 diversidade=0.75 treinos=9 (6.4s)
+13:25:42 | INFO | tc2.ga | [logistic_regression] geração 02 | melhor=0.9753 média=0.9627 diversidade=0.62 treinos=7 (1.7s)
+13:25:43 | INFO | tc2.ga | [logistic_regression] geração 03 | melhor=0.9753 média=0.9676 diversidade=0.62 treinos=4 (0.7s)
+13:25:43 | INFO | tc2.ga | [logistic_regression] geração 04 | melhor=0.9753 média=0.9665 diversidade=0.50 treinos=5 (0.3s)
+13:25:44 | INFO | tc2.ga | [logistic_regression] geração 05 | melhor=0.9753 média=0.9717 diversidade=0.38 treinos=4 (0.2s)
+13:25:44 | INFO | tc2.ga | [logistic_regression] geração 06 | melhor=0.9753 média=0.9738 diversidade=0.25 treinos=1 (0.1s)
+13:25:44 | INFO | tc2.ga | [logistic_regression] geração 07 | melhor=0.9753 média=0.9742 diversidade=0.19 treinos=2 (0.1s)
+13:25:44 | INFO | tc2.ga | [logistic_regression] geração 08 | melhor=0.9753 média=0.9728 diversidade=0.44 treinos=5 (0.5s)
+13:25:44 | INFO | tc2.ga | [logistic_regression] fim: sem melhora por 6 gerações (convergiu) | melhor fitness=0.9753 | {'C': 0.471201604052244, 'l1_ratio': 0.0, 'class_weight': 'balanced'}
+13:25:44 | INFO | tc2.experiments | ----------------------------------------------------------------------
+13:25:44 | INFO | tc2.experiments | E2_mutacao_alta - Mutação 40% com passo maior: mais exploração, menos convergência
+13:25:55 | INFO | tc2.ga | [logistic_regression] geração 00 | melhor=0.9636 média=0.9272 diversidade=1.00 treinos=16 (10.6s)
+13:26:04 | INFO | tc2.ga | [logistic_regression] geração 01 | melhor=0.9704 média=0.9477 diversidade=1.00 treinos=13 (9.2s)
+13:26:05 | INFO | tc2.ga | [logistic_regression] geração 02 | melhor=0.9753 média=0.9526 diversidade=0.62 treinos=5 (0.4s)
+13:26:05 | INFO | tc2.ga | [logistic_regression] geração 03 | melhor=0.9753 média=0.9615 diversidade=0.75 treinos=8 (0.6s)
+13:26:09 | INFO | tc2.ga | [logistic_regression] geração 04 | melhor=0.9753 média=0.9562 diversidade=0.81 treinos=11 (3.5s)
+13:26:09 | INFO | tc2.ga | [logistic_regression] geração 05 | melhor=0.9753 média=0.9665 diversidade=0.81 treinos=8 (0.8s)
+13:26:11 | INFO | tc2.ga | [logistic_regression] geração 06 | melhor=0.9753 média=0.9668 diversidade=0.75 treinos=10 (1.1s)
+13:26:11 | INFO | tc2.ga | [logistic_regression] geração 07 | melhor=0.9753 média=0.9623 diversidade=0.69 treinos=9 (0.7s)
+13:26:13 | INFO | tc2.ga | [logistic_regression] geração 08 | melhor=0.9753 média=0.9644 diversidade=0.56 treinos=7 (1.9s)
+13:26:13 | INFO | tc2.ga | [logistic_regression] fim: sem melhora por 6 gerações (convergiu) | melhor fitness=0.9753 | {'C': 0.4459262603109754, 'l1_ratio': 0.0, 'class_weight': 'balanced'}
+13:26:13 | INFO | tc2.experiments | ----------------------------------------------------------------------
+13:26:13 | INFO | tc2.experiments | E3_populacao_maior - População 28 com menos gerações (mesmo orçamento): mais diversidade inicial
+13:26:28 | INFO | tc2.ga | [logistic_regression] geração 00 | melhor=0.9753 média=0.9301 diversidade=1.00 treinos=28 (15.0s)
+13:26:37 | INFO | tc2.ga | [logistic_regression] geração 01 | melhor=0.9753 média=0.9459 diversidade=0.82 treinos=17 (9.1s)
+13:26:41 | INFO | tc2.ga | [logistic_regression] geração 02 | melhor=0.9753 média=0.9633 diversidade=0.64 treinos=12 (3.6s)
+13:26:42 | INFO | tc2.ga | [logistic_regression] geração 03 | melhor=0.9753 média=0.9686 diversidade=0.57 treinos=8 (0.8s)
+13:26:44 | INFO | tc2.ga | [logistic_regression] geração 04 | melhor=0.9753 média=0.9711 diversidade=0.50 treinos=10 (1.8s)
+13:26:45 | INFO | tc2.ga | [logistic_regression] geração 05 | melhor=0.9753 média=0.9721 diversidade=0.46 treinos=8 (1.6s)
+13:26:46 | INFO | tc2.ga | [logistic_regression] geração 06 | melhor=0.9753 média=0.9715 diversidade=0.46 treinos=9 (1.2s)
+13:26:46 | INFO | tc2.ga | [logistic_regression] fim: sem melhora por 6 gerações (convergiu) | melhor fitness=0.9753 | {'C': 0.25526350143460613, 'l1_ratio': 0.06618860521154724, 'class_weight': 'balanced'}
+13:26:46 | INFO | tc2.experiments | ----------------------------------------------------------------------
+13:26:46 | INFO | tc2.experiments | E4_roleta_sem_elitismo - Seleção por roleta e sem elitismo: menor pressão seletiva
+13:26:58 | INFO | tc2.ga | [logistic_regression] geração 00 | melhor=0.9636 média=0.9272 diversidade=1.00 treinos=16 (11.3s)
+13:27:08 | INFO | tc2.ga | [logistic_regression] geração 01 | melhor=0.9636 média=0.9463 diversidade=0.94 treinos=10 (10.0s)
+13:27:14 | INFO | tc2.ga | [logistic_regression] geração 02 | melhor=0.9692 média=0.9562 diversidade=0.94 treinos=12 (6.5s)
+13:27:17 | INFO | tc2.ga | [logistic_regression] geração 03 | melhor=0.9704 média=0.9615 diversidade=0.75 treinos=8 (2.6s)
+13:27:17 | INFO | tc2.ga | [logistic_regression] geração 04 | melhor=0.9704 média=0.9621 diversidade=0.62 treinos=4 (0.7s)
+13:27:19 | INFO | tc2.ga | [logistic_regression] geração 05 | melhor=0.9704 média=0.9613 diversidade=0.62 treinos=4 (1.5s)
+13:27:20 | INFO | tc2.ga | [logistic_regression] geração 06 | melhor=0.9704 média=0.9591 diversidade=0.75 treinos=7 (1.1s)
+13:27:21 | INFO | tc2.ga | [logistic_regression] geração 07 | melhor=0.9704 média=0.9580 diversidade=0.88 treinos=8 (1.3s)
+13:27:23 | INFO | tc2.ga | [logistic_regression] geração 08 | melhor=0.9695 média=0.9599 diversidade=0.88 treinos=7 (2.2s)
+13:27:25 | INFO | tc2.ga | [logistic_regression] geração 09 | melhor=0.9695 média=0.9626 diversidade=0.75 treinos=3 (1.7s)
+13:27:25 | INFO | tc2.ga | [logistic_regression] fim: sem melhora por 6 gerações (convergiu) | melhor fitness=0.9704 | {'C': 0.15981532114779118, 'l1_ratio': 0.0, 'class_weight': None}
+13:27:25 | INFO | tc2.experiments | ----------------------------------------------------------------------
+13:27:25 | INFO | tc2.experiments | E5_semeado_fase1 - Igual ao E1, mas com o modelo da Fase 1 na população inicial
+13:27:34 | INFO | tc2.ga | [logistic_regression] geração 00 | melhor=0.9668 média=0.9286 diversidade=1.00 treinos=16 (8.5s)
+13:27:39 | INFO | tc2.ga | [logistic_regression] geração 01 | melhor=0.9742 média=0.9560 diversidade=0.94 treinos=10 (5.2s)
+13:27:41 | INFO | tc2.ga | [logistic_regression] geração 02 | melhor=0.9742 média=0.9660 diversidade=0.75 treinos=8 (2.1s)
+13:27:42 | INFO | tc2.ga | [logistic_regression] geração 03 | melhor=0.9742 média=0.9715 diversidade=0.62 treinos=5 (1.0s)
+13:27:44 | INFO | tc2.ga | [logistic_regression] geração 04 | melhor=0.9742 média=0.9703 diversidade=0.62 treinos=5 (1.4s)
+13:27:45 | INFO | tc2.ga | [logistic_regression] geração 05 | melhor=0.9742 média=0.9702 diversidade=0.50 treinos=4 (1.8s)
+13:27:46 | INFO | tc2.ga | [logistic_regression] geração 06 | melhor=0.9742 média=0.9730 diversidade=0.38 treinos=2 (0.6s)
+13:27:47 | INFO | tc2.ga | [logistic_regression] geração 07 | melhor=0.9742 média=0.9724 diversidade=0.31 treinos=2 (0.6s)
+13:27:47 | INFO | tc2.ga | [logistic_regression] fim: sem melhora por 6 gerações (convergiu) | melhor fitness=0.9742 | {'C': 1.0, 'l1_ratio': 0.026579269507614148, 'class_weight': 'balanced'}
+13:28:18 | INFO | tc2.experiments | Busca aleatória (53 treinos): CV F2=0.9753

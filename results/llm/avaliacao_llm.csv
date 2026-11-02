@@ -1,0 +1,5 @@
+paciente_id,classe_real,previsao,prob_maligno,prompt,estrutura,classe_correta,cobertura_fatores,fidelidade_numerica,seguranca,tamanho_adequado,nota_geral,palavras,numeros_sem_suporte
+73,maligno,benigno,0.1693,engenheirado,1.0,1.0,1.0,1.0,1.0,1.0,1.0,201,[]
+461,maligno,maligno,1.0,engenheirado,1.0,1.0,1.0,1.0,1.0,1.0,1.0,201,[]
+296,benigno,benigno,0.0,engenheirado,1.0,1.0,1.0,1.0,1.0,1.0,1.0,201,[]
+526,benigno,benigno,0.452,engenheirado,1.0,1.0,1.0,1.0,1.0,1.0,1.0,205,[]
