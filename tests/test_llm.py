@@ -40,6 +40,8 @@ def test_prompt_contains_data_and_rules():
 
 
 def test_client_without_key_falls_back_to_offline(monkeypatch):
+    # impede que um .env real (com chave) seja recarregado pelo cliente durante o teste
+    monkeypatch.setattr("tc2.llm.client._load_env", lambda: None)
     monkeypatch.delenv("LLM_API_KEY", raising=False)
     monkeypatch.delenv("GROQ_API_KEY", raising=False)
     client = LLMClient(provider="groq", api_key=None)
