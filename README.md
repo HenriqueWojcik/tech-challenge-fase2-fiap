@@ -11,7 +11,7 @@ Este projeto continua a [Fase 1](https://github.com/HenriqueWojcik/tech-challeng
 📄 **Relatório técnico:** [`docs/relatorio_tecnico.md`](docs/relatorio_tecnico.md)
 🏗️ **Arquitetura:** [`docs/arquitetura.md`](docs/arquitetura.md)
 📚 **Guia de estudo (código ↔ aulas):** [`docs/guia_de_estudo.md`](docs/guia_de_estudo.md)
-🎥 **Vídeo:** _link do YouTube aqui_
+🎥 **Vídeo:** https://youtu.be/LunT2sSVjgc
 
 ## Resultados em uma frase
 
